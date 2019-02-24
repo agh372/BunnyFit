@@ -1,9 +1,12 @@
 package com.teamfitness.fitapp;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.teamfitness.fitapp.adapter.TabPagerAdapter;
 
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       // setSupportActionBar(toolbar);
 
 
         final TabLayout tabLayout =
@@ -35,7 +39,15 @@ public class MainActivity extends AppCompatActivity
         tabLayout.addTab(tabLayout.newTab().setText("Home"));
         tabLayout.addTab(tabLayout.newTab().setText("Points"));
         tabLayout.addTab(tabLayout.newTab().setText("Redeem"));
-
+        tabLayout.setBackgroundColor(Color.WHITE);
+        toolbar.setBackgroundColor(Color.WHITE);
+        //#
+        TextView myText = (TextView)findViewById(R.id.toolbar_title);
+     //  myText.setTextAppearance(this, R.style.MyText);
+        Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.lobsterib);
+      myText.setTypeface(font);
+        toolbar.setTitleTextColor(Color.parseColor("#ef125b"));
+        tabLayout.setTabTextColors(Color.BLACK,Color.parseColor("#ef125b"));
         final ViewPager viewPager =
                 (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new TabPagerAdapter
