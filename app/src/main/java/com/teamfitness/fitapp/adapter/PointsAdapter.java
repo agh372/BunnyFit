@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 import com.squareup.picasso.Picasso;
 import com.teamfitness.fitapp.R;
 import com.teamfitness.fitapp.model.Coupon;
+import com.teamfitness.fitapp.model.Levels;
 
-public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponViewHolder> {
-    private Coupon[] mDataset;
+public class PointsAdapter extends RecyclerView.Adapter<PointsAdapter.CouponViewHolder> {
+    private Levels[] mDataset;
     Context context;
 
     // Provide a reference to the views for each data item
@@ -21,31 +23,30 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponView
     // you provide access to all the views for a data item in a view holder
     public static class CouponViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView labelText;
-        public TextView costDrop;
-        public ImageView coverImage;
+        public TextView levelNumber;
+        public RoundedHorizontalProgressBar progressBar;
         public CouponViewHolder(View v) {
             super(v);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CouponAdapter(Coupon[] myDataset, Context context) {
+    public PointsAdapter(Levels[] myDataset, Context context) {
         mDataset = myDataset;
         this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public CouponAdapter.CouponViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public PointsAdapter.CouponViewHolder onCreateViewHolder(ViewGroup parent,
+                                                             int viewType) {
         // create a new view
         View view =  LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.coupon_items, parent, false);
+                .inflate(R.layout.level_items, parent, false);
         CouponViewHolder vh = new CouponViewHolder(view);
-        vh.labelText = (TextView) view.findViewById(R.id.label_txt);
-        vh.costDrop = (TextView) view.findViewById(R.id.card_desc_value);
-        vh.coverImage = (ImageView) view.findViewById(R.id.card_image);
+        vh.levelNumber = (TextView) view.findViewById(R.id.level_number);
+        vh.progressBar = (RoundedHorizontalProgressBar) view.findViewById(R.id.level_progress);
+        vh.progressBar.setProgressColors(context.getResources().getColor(R.color.prog_bg),context.getResources().getColor(R.color.prog_fg));
 
         return vh;
     }
@@ -55,12 +56,8 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponView
     public void onBindViewHolder(CouponViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.labelText.setText(mDataset[position].getType());
-        holder.costDrop.setText("$ "+ mDataset[position].getPriceDiscount());
-        Picasso.get().load(getDrawableIdFromFileName(context,mDataset[position].getImageUrl()))
-                .error(R.drawable.panda)
-                .into(holder.coverImage);
-
+        holder.levelNumber.setText("Level :"+mDataset[position].getLevelNumber());
+        holder.progressBar.setProgress(mDataset[position].getProgress());
     }
 
     public static int getDrawableIdFromFileName(Context context, String nameOfDrawable) {

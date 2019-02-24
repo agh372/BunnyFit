@@ -69,7 +69,6 @@ public class RedeemFragment extends Fragment {
         }
 
 
-
     }
 
     @Override
@@ -89,12 +88,22 @@ public class RedeemFragment extends Fragment {
 
         // specify an adapter (see also next example)
         Coupon c1 = new Coupon();
-        c1.setDiscount("20% OFF");
-        c1.setName("Pizza");
+        c1.setId(1);
+        c1.setImageUrl("state");
+        c1.setName("State Farm");
+        c1.setPriceDiscount(120);
+        c1.setType("Life Insurance");
 
-        Coupon[] myDataset = {c1,c1,c1,c1,c1,c1,c1};
-        mCouponAdapter = new CouponAdapter(myDataset);
-       couponRecyclerView.setAdapter(mCouponAdapter);
+        Coupon c2 = new Coupon();
+        c2.setId(1);
+        c2.setImageUrl("health");
+        c2.setName("Health Insurance Company");
+        c2.setPriceDiscount(100);
+        c2.setType("Health Insurance");
+
+        Coupon[] myDataset = {c1, c2, c1 , c2, c1};
+        mCouponAdapter = new CouponAdapter(myDataset, getContext());
+        couponRecyclerView.setAdapter(mCouponAdapter);
 
         return rootView;
     }
