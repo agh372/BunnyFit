@@ -1,15 +1,27 @@
 package com.teamfitness.fitapp.model;
 
 public class Coupon {
-    private String discount;
+    private String imageUrl;
     private String name;
+    private int id;
+    private int priceDiscount;
 
-    public String getDiscount() {
-        return discount;
+    public String getType() {
+        return type;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String type;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -18,5 +30,21 @@ public class Coupon {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPriceDiscount() {
+        return priceDiscount;
+    }
+
+    public void setPriceDiscount(int priceDiscount) {
+        this.priceDiscount = priceDiscount;
     }
 }
