@@ -19,15 +19,13 @@
             android:layout_width="match_parent"
             android:minHeight="50dp"
             android:background="@color/toolbar"
-            android:theme="@style/ToolbarTheme"
-            >
+            android:theme="@style/ToolbarTheme">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fit"
-
+                android:text="Bunny Fit"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
 
@@ -37,20 +35,28 @@
 
     android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/points_icon"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/trophy"
+            />
+
             <TextView
                 android:id="@+id/points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:textSize="15sp"
+                android:layout_toRightOf="@+id/points_icon"
+                android:layout_centerVertical="true"
                 android:text="1000  "
-                android:layout_marginLeft="60dp"
                 />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/trophy"
-                />
+    </RelativeLayout>
 </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
@@ -75,12 +81,5 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">HELLO WORLD</TextView>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>

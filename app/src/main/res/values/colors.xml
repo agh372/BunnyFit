@@ -4,5 +4,8 @@
     <color name="colorPrimaryDark">#ef125b</color>
     <color name="colorAccent">#ef125b</color>
     <color name="toolbar">#ef125b</color>
+    <color name="splash_text">#ffffff</color>
+    <color name="prog_bg">#fff2f6</color>
+    <color name="prog_fg">#e70052</color>
 
 </resources>
