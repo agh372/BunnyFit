@@ -8,6 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="android:textColor">#ef125b</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="MyText" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@fonts/lobsteritalicbold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
