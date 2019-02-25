@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.teamfitness.fitapp.fragments.ARFragment;
 import com.teamfitness.fitapp.fragments.HomeFragment;
 import com.teamfitness.fitapp.fragments.LevelFragment;
 import com.teamfitness.fitapp.fragments.RedeemFragment;

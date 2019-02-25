@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.google.ar.sceneform.ux.ArFragment;
+import com.teamfitness.fitapp.MainActivity;
 import com.teamfitness.fitapp.R;
 
 /**
@@ -27,6 +30,7 @@ public class HomeFragment extends Fragment  {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Button collectGooodiesButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +69,19 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        collectGooodiesButton = root.findViewById(R.id.collect_goodies_btn);
+
+        collectGooodiesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).showAR();
+                ;
+            }
+        });
+
+
+        return root;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
