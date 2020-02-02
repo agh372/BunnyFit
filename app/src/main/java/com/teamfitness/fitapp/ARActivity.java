@@ -55,14 +55,6 @@ public class ARActivity extends AppCompatActivity {
                 .build(); // .thenAcceptAsync{ modelRenderable -> this@MainActivity.modelRenderable =
         // modelRenderable }
 
-        // I accepted the CompletableFuture using Async since I created my model on creation of the
-        // activity. You could simply use .thenAccept too.
-        // Use the returned modelRenderable and save it to a global variable of the same name
-        //    .thenAcceptAsync { modelRenderable -> this@MainActivity.modelRenderable = modelRenderable
-        // }
-        //        modelRenderable -> this@MainActivity.modelRenderable = modelRenderable
-
-        //
         Session mSession = null;
         try {
             mSession = new Session(this); // scene.getSession();
